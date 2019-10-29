@@ -1,0 +1,21 @@
+.container {
+    margin-top: 1.2rem;
+  }
+  
+  .container input,
+  .container ::-webkit-input-placeholder {
+    color: black !important;
+  }
+  .container input:focus {
+    box-shadow: none !important;
+    border: Black;
+    border: 2px solid tomato;
+    color: black;
+  }
+    div.Card {
+      border-style: black, 1px;
+  }
+    
+  h1, h2, h3, h4, h5, h6 {
+      color: black;
+  }
