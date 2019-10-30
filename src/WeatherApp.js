@@ -8,6 +8,9 @@ import 'weather-icons/css/weather-icons.min.css';
 import "weather-icons/css/weather-icons.css";
 import API from './utils/API'
 import moment from 'moment';
+// const dotenv = require('dotenv');
+// const env = dotenv.config().parsed;
+import keys from './keys';
 
 // import {apiweather} from '../keys';
 
@@ -106,11 +109,42 @@ class WheatherApp extends React.Component {
           error: true
         });
       }
+
+      let today = moment().format('MM DD YYYY');
+      let todayArr = today.split(' ');
+      let month = todayArr[0];
+      let day = todayArr[1];
+      let year = todayArr[2]
+      console.log("month:", month);
+      console.log("day:", day);
+      console.log("year", year);
+      // let holidayCity = this.state.city;
+      let holidayCountry = this.state.country;
+      let key = 'e109786119f75a638812ddfabaa96bf150902d3d';
+      console.log('key', key)
+      let queryString = 'https://calendarific.com/api/v2/holidays?&api_key='+key+'&country='
+      +holidayCountry+'&month='+month+'&day='+day+'&year='+year;
+      console.log(queryString);
+      API.getHolidayInfo(queryString).then(response => console.log(response))
     };
 
-    componentDidMount() {
-      API.getHolidayInfo().then(response => console.log(response))
-    }
+    // componentDidMount() {
+    //   let today = moment().format('MM DD YYYY');
+    //   let todayArr = today.split(' ');
+    //   let month = todayArr[0];
+    //   let day = todayArr[1];
+    //   let year = todayArr[2]
+    //   console.log("month:", month);
+    //   console.log("day:", day);
+    //   console.log("year", year);
+    //   let city = this.state.city;
+    //   let country = this.state.country;
+    //   let key = keys.holiday;
+    //   let queryString = 'https://calendarific.com/api/v2/holidays?&api_key='+key+'e109786119f75a638812ddfabaa96bf150902d3d&country='
+    //   +country+'&month='+month+'&day='+day+'&year='+year;
+    //   console.log(queryString);
+    //   API.getHolidayInfo().then(response => console.log(response))
+    // }
   
     render() {
       return (
