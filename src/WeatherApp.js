@@ -6,6 +6,9 @@ import Weather from './app_component/weather.component.jsx';
 import 'weather-icons/css/weather-icons.min.css';
 // git project https://github.com/erikflowers/weather-icons
 import "weather-icons/css/weather-icons.css";
+import API from './utils/API'
+import moment from 'moment';
+
 // import {apiweather} from '../keys';
 
 // const API_key = apiweather;
@@ -104,6 +107,10 @@ class WheatherApp extends React.Component {
         });
       }
     };
+
+    componentDidMount() {
+      API.getHolidayInfo().then(response => console.log(response))
+    }
   
     render() {
       return (
@@ -118,6 +125,7 @@ class WheatherApp extends React.Component {
             temp_min={this.state.temp_min}
             description={this.state.description}
           />
+           <h1>holiday</h1>
         </div>
       );
     }
