@@ -1,6 +1,6 @@
 console.log ("keys loaded");
-const dotenv = require('dotenv');
-const env = dotenv.config().parsed;
+// const dotenv = require('dotenv');
+// const env = dotenv.config().parsed;
 
 
 // exports.apiweather = {
@@ -11,6 +11,6 @@ const env = dotenv.config().parsed;
 //  };
 
  export default {
-     apiweather: process.env.APIkeyWeather,
-     holiday: process.env.apikey_holidays
+     apiweather: process.env.REACT_APP_APIkeyWeather,
+     holiday: process.env.REACT_APP_apikey_holiday
  }
