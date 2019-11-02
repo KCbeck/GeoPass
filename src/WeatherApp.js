@@ -158,7 +158,6 @@ class WheatherApp extends React.Component {
             temp_min={this.state.temp_min}
             description={this.state.description}
           />
-           <h1>holiday</h1>
         </div>
       );
     }
