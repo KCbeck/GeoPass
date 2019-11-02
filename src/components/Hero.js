@@ -9,7 +9,6 @@ const Hero = () => (
     <h1 className="mb-4">Geo Pass</h1>
 
     <p className="lead">
-      This is the app to give you all the geopolitical news that you need to know. Geo Pass
     </p>
   </div>
 );
