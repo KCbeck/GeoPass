@@ -13,4 +13,6 @@ app.use((_, res) => {
   res.sendFile(join(__dirname, "build", "index.html"));
 });
 
+require("./routes/index")(app);
+
 app.listen(port, () => console.log(`Listening on port ${port}`));
