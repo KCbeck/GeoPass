@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>GeoPass</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+ <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+ <style type="text/css">
+ 	@import url('https://fonts.googleapis.com/css?family=Muli:300,400,600,700&display=swap');
+
+
+ 	body{
+ 		background: rgb(68, 83, 100);
+ 		font-family: 'antialiased', antialiased;
+
+
+ 	}
+ 	.fa{
+ 		color: rgb(68, 83, 100);
+ 		text-align: center;
+ 		padding: 30px;
+		font-size: 46px;
+	
+
+	 }
+	 
+	 #clipboard{
+		 margin-left: 45%;
+		 margin-right: 45%;
+
+
+	 }
+
+ 	.card{
+ 		padding: 15px;
+ 		margin: 10px;
+ 		 box-shadow: 0 3px 5px 0 rgba(0, 0, 0, 0.01);
+    transition: box-shadow 0.3s ease-in-out;
+    border:1px solid #ddd;
+    cursor: pointer;
+    border-radius: 4px;
+ 	}
+ 	.card:hover{
+ 		box-shadow: 0 5px 15px 2px rgba(0, 0, 0, 0.3);
+ 	}
+ 	h3{
+ 		text-align: center;
+ 		font-size: 22px;
+ 		color: #839192;
+    font-weight: 600;
+
+ 	}
+ 	
+ 	p{
+ 		padding: 5px;
+ 		text-align: center;
+ 		font-size: 15px;
+ 		color: #839192;
+ 		line-height: 1.6;
+    font-weight: 500;
+    padding-top: 5px;
+
+	 }
+	 
+	 .card1{
+		padding: 15px;
+ 		 box-shadow: 0 3px 5px 0 rgba(0, 0, 0, 0.01);
+    transition: box-shadow 0.3s ease-in-out;
+    border:1px solid #ddd;
+    cursor: pointer;
+    border-radius: 4px;
+		margin-left: 6%;
+		margin-right: 6%;
+		background: white;
+		
+	 }
+
+	 .card1:hover{
+ 		box-shadow: 0 5px 15px 2px rgba(0, 0, 0, 0.3);
+ 	}
+
+	 #note{
+		 width: 100%;
+		 
+
+	 }
+ </style>
+</head>
+<body>
+  
+<div class="container mt-5">
+  <h1 class="text-white text-center pb-3">GeoPass</h1>
+  <div class="row">
+  	<div class="col-lg-4 col-md-6 col-xs-12 pl-1 pr-1">
+  		<div class="card">
+  		<i class="fa fa-calendar"></i>
+  		<h3>Time</h3>
+  		<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+  		tempor incididunt ut labore et dolore magna aliqua.</p>
+  	</div>
+  	</div>
+  	  	<div class="col-lg-4 col-md-6 col-xs-12 pl-1 pr-1">
+  		<div class="card">
+  		<i class="fa fa-calendar"></i>
+  		<h3>Weather</h3>
+  		<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+  		tempor incididunt ut labore et dolore magna aliqua.</p>
+  	</div>
+  	</div>
+  	<div class="col-lg-4 col-md-6 col-xs-12 pl-1 pr-1">
+  		<div class="card">
+  		<i class="fa fa-calendar"></i>
+  		<h3>Date</h3>
+  		<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+  		tempor incididunt ut labore et dolore magna aliqua.</p>
+  	</div>
+  	</div>
+	  </div>
+	</div>
+	  <div class="card1">
+			<i id="clipboard" class="fa fa-clipboard"></i>
+			<h3>Notes</h3>
+		<textarea rows="10" id="note"></textarea>
+		<textarea rows="10" id="note"></textarea>
+		<div id="buttons">
+				<div id="action-button">
+				  <button type="button" class="btn btn-outline-info btn-lg" id="make-new" style="margin-left: 45%">Submit</button> 
+				</div>
+				<button type="button" class="btn btn-outline-secondary btn-lg" id="clear-all" style="margin-left: 41.5%">Delete All Notes</button>
+	</div>
+  </div>         
+</div>
+
+</body>
+</html>
