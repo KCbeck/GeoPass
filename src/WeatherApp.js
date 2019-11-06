@@ -29,6 +29,12 @@ class WheatherApp extends React.Component {
         temp_max: null,
         temp_min: null,
         description: "",
+        todayArr: [],
+        today: "",
+        month: "",
+        day: "",
+        year: "",
+        holidays: [],
         error: false
       };
   
@@ -88,7 +94,18 @@ class WheatherApp extends React.Component {
         );
   
         const response = await api_call.json();
-  
+
+        let today = moment().format('MM DD YYYY');
+        let todayArr = today.split(' ');
+        
+      // let holidayCity = this.state.city;
+      let holidayCountry = this.state.country;
+      let holidayKey = keys.holiday;
+      let queryString = 'https://calendarific.com/api/v2/holidays?&api_key='+holidayKey+'&country='
+      +holidayCountry+'&month='+this.state.month+'&day='+this.state.day+'&year='+this.state.year;
+      console.log(queryString);
+      API.getHolidayInfo(queryString).then(response => this.setState ({holidays: response.data.response.holidays? response.data.response.holidays : "Not a Holiday"}))
+
         this.setState({
           city: `${response.name}, ${response.sys.country}`,
           country: response.sys.country,
@@ -97,6 +114,11 @@ class WheatherApp extends React.Component {
           temp_max: this.calCelsius(response.main.temp_max),
           temp_min: this.calCelsius(response.main.temp_min),
           description: response.weather[0].description,
+          today: moment().format('MM DD YYYY'),
+          todayArr: today.split(' '), 
+          month: todayArr[0],
+          day: todayArr[1],
+          year: todayArr[2], 
           error: false
         });
   
@@ -110,21 +132,9 @@ class WheatherApp extends React.Component {
         });
       }
 
-      let today = moment().format('MM DD YYYY');
-      let todayArr = today.split(' ');
-      let month = todayArr[0];
-      let day = todayArr[1];
-      let year = todayArr[2]
-      console.log("month:", month);
-      console.log("day:", day);
-      console.log("year", year);
-      // let holidayCity = this.state.city;
-      let holidayCountry = this.state.country;
-      let holidayKey = keys.holiday;
-      let queryString = 'https://calendarific.com/api/v2/holidays?&api_key='+holidayKey+'&country='
-      +holidayCountry+'&month='+month+'&day='+day+'&year='+year;
-      console.log(queryString);
-      API.getHolidayInfo(queryString).then(response => console.log(response))
+      
+      
+
     };
 
     // componentDidMount() {
@@ -158,6 +168,9 @@ class WheatherApp extends React.Component {
             temp_min={this.state.temp_min}
             description={this.state.description}
           />
+          <div >
+            <p> {this.state.today} {this.state.holidays}</p>
+          </div>
         </div>
       );
     }
