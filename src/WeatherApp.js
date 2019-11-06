@@ -8,14 +8,16 @@ import 'weather-icons/css/weather-icons.min.css';
 import "weather-icons/css/weather-icons.css";
 import API from './utils/API'
 import moment from 'moment';
-
+import './WheatherApp.css';
 // const dotenv = require('dotenv');
 // const env = dotenv.config().parsed;
 import keys from './keys';
 
-// import {apiweather} from '../keys';
+
 
 const weatherKey = keys.apiweather;
+
+
 
 class WheatherApp extends React.Component {
     constructor() {
@@ -107,7 +109,7 @@ class WheatherApp extends React.Component {
       API.getHolidayInfo(queryString).then(response => this.setState ({holidays: response.data.response.holidays? response.data.response.holidays : "Not a Holiday"}))
 
         this.setState({
-          city: `${response.name}, ${response.sys.country}`,
+          city: `${response.name}, ${response.sys.country} `,
           country: response.sys.country,
           main: response.weather[0].main,
           celsius: this.calCelsius(response.main.temp),
@@ -160,7 +162,8 @@ class WheatherApp extends React.Component {
        
         <div className="App">
           <Form loadweather={this.getWeather} error={this.state.error} />
-          <Weather
+          <div class="whcard">
+          <Weather 
             cityname={this.state.city}
             weatherIcon={this.state.icon}
             temp_celsius={this.state.celsius}
@@ -168,10 +171,17 @@ class WheatherApp extends React.Component {
             temp_min={this.state.temp_min}
             description={this.state.description}
           />
+        
           <div >
-            <p> {this.state.today} {this.state.holidays}</p>
           </div>
+            <br>
+            </br>
+         
+          </div>
+          <p class='holi'><h1>This will display holidays</h1>{this.state.today}
+          <div class="line"></div>{this.state.holidays}</p><p class="clock"><h1>clock</h1></p>
         </div>
+           
       );
     }
   }

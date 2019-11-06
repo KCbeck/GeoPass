@@ -2,7 +2,7 @@ import React, { Fragment } from "react";
 
 import Hero from "../components/Hero";
 // import Content from "../components/Content";
-import WeatherApp from "../WeatherApp";
+import dashboard from '../components/dashboard';
 import PrivateRoute from "../components/PrivateRoute";
 
 const Home = () => (
@@ -10,7 +10,7 @@ const Home = () => (
     <Hero />
     <hr />
   
-    <PrivateRoute path="/weather" component={WeatherApp} />
+    <PrivateRoute path="/dashboard" component={dashboard} />
   </Fragment>
 );
 

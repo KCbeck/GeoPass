@@ -1,0 +1,46 @@
+
+.whcard {
+    vertical-align: top;
+    margin-top: 3%;
+    width: 28%;
+    display: inline-block;
+      height: 475px;
+      font: bold;
+      font: 70px;
+      border: 5px solid #D4AC0D;;
+      margin-right:8%;
+      background-color: white;
+     
+}
+.holi {
+    vertical-align: top;
+    padding-left: 3%;
+    padding-right:3%;
+text-align: center;
+    margin-top: 3%;
+    width: 28%;
+  display: inline-block;
+    height: 475px;
+    font: bold;
+    font: 70px;
+    border: 5px solid#D4AC0D;;
+    background-color: white;
+  
+}
+
+.clock {
+    margin-left: 8%;
+    vertical-align: top;
+    padding-left: 3%;
+    padding-right:3%;
+text-align: center;
+    margin-top: 3%;
+    width: 28%;
+  display: inline-block;
+    height: 475px;
+    font: bold;
+    font: 70px;
+    border: 5px solid #D4AC0D;
+    background-color: white;
+}
+

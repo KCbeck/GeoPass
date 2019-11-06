@@ -10,7 +10,7 @@ import Home from "./views/Home";
 import Profile from "./views/Profile";
 import { useAuth0 } from "./react-auth0-spa";
 import history from "./utils/history";
-import WeatherApp from './WeatherApp.js';
+import dashboard from './components/dashboard';
 
 // styles
 import "./App.css";
@@ -34,7 +34,7 @@ const App = () => {
           <Switch>
             <Route path="/" exact component={Home} />
             <PrivateRoute path="/profile" component={Profile} />
-            <PrivateRoute path="/weather" component={WeatherApp} />
+            <PrivateRoute path="/dashboard" component={dashboard} />
           </Switch>
         </Container>
       </div>
