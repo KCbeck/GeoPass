@@ -9,10 +9,13 @@ import "weather-icons/css/weather-icons.css";
 import API from './utils/API'
 import moment from 'moment';
 import './WheatherApp.css';
-// const dotenv = require('dotenv');
-// const env = dotenv.config().parsed;
 import keys from './keys';
+import Note from './Note';
+import ListNotes from './ListNotes'
 
+const notesArray= [{id: 1, heading:'Note Uno', value:'This is a note'},
+              {id: 2, heading:'Note Dos', value:'This is another note'},
+              {id: 3, heading:'Note Tres', value:'This is the third note'}]
 
 
 const weatherKey = keys.apiweather;
@@ -20,8 +23,8 @@ const weatherKey = keys.apiweather;
 
 
 class WheatherApp extends React.Component {
-    constructor() {
-      super();
+    constructor(props) {
+      super(props);
       this.state = {
         city: undefined,
         country: undefined,
@@ -37,6 +40,8 @@ class WheatherApp extends React.Component {
         day: "",
         year: "",
         holidays: [],
+        currentNote: null,
+        notes: notesArray,
         error: false
       };
   
@@ -133,11 +138,43 @@ class WheatherApp extends React.Component {
           error: true
         });
       }
+    }
 
-      
+      changeCurrentNote = (note) =>{
+
+        this.setState({ currentNote: note })
+      }
+    
+      deletenote = (note) =>{
+    
+    
+        this.setState((state) => ({ notes: state.notes.filter(noteIterator => (noteIterator.id !== note.id)) }))
+        this.setState({ currentNote: null })
+    
+    
+      }
+    
+      saveNote = (note) =>{
+    
+        this.setState((state) => { state.notes.concat([note]) })
+        this.setState({ currentNote: note })
+    
+      }
+    
+      addNew = () =>{
+    
+    
+    
+        const note = {id: this.state.notes.length + 1, heading: '', value: ' '}
+        this.setState((state) => ({ notes: state.notes.concat([note]) }))
+        this.setState({ currentNote: note })
+    
+    
+    
+      }
       
 
-    };
+    
 
     // componentDidMount() {
     //   let today = moment().format('MM DD YYYY');
@@ -158,6 +195,7 @@ class WheatherApp extends React.Component {
     // }
   
     render() {
+      this.state.notes.sort((a, b) => {return b.id-a.id})
       return (
        
         <div className="App">
@@ -178,8 +216,17 @@ class WheatherApp extends React.Component {
             </br>
          
           </div>
-          <p class='holi'><h1>This will display holidays</h1>{this.state.today}
-          <div class="line"></div>{this.state.holidays}</p><p class="clock"><h1>clock</h1></p>
+          <p class='holi'><h1> Date and Holiday</h1>{this.state.today}
+          <div class="line"></div>{this.state.holidays}</p><p class="clock"><button className='add-note' onClick={this.addNew}>ADD/SAVE+</button>
+        <div className='notes-wrapper'>
+        <div className='list-notes-top'>
+          <ListNotes notes={this.state.notes} changeCurrentNote={this.changeCurrentNote} deletenote={this.deletenote}/>
+        </div>
+        <div className='current-note'>
+        {( this.state.currentNote !== null ) && ( <Note note={this.state.currentNote} savenote={this.saveNote}/> )}
+        </div>
+
+        </div></p>
         </div>
            
       );
