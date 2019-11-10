@@ -1,0 +1,8 @@
+.nav-user-profile {
+    z-index:-1;
+    position:relative;
+    margin-bottom: -5%;
+}
+.nav-link {
+    color: black;
+}
