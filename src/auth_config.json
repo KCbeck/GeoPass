@@ -1,0 +1,5 @@
+{
+    "domain": "dev-an3iilbu.auth0.com",
+    "clientId": "b1FBq4q5hTlYsfToI3UFLYiR4RpNTWUd",
+    "callback": "http://localhost:3000/"
+   }
